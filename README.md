@@ -1,5 +1,5 @@
 
-# DPR
+# DPR (Data Points & Regression)
 
 ## About
 A desktop application to generate data points from a raw data file and perform piecewise/segmented linear regression with a GUI that supports multiple options for both data point optimatization and time series recode treatment for regression, as well as visualization of datapoints and regression tables, plots, and statistics.

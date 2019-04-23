@@ -10,8 +10,8 @@ This project was built to fill a software gap at my place of employment.
 ![GUI example image.](https://github.com/pjpardun/dpr/blob/master/DPR%20GUI%20Image2.png)
 
 ## Features
-- options for optimizing date selection for data point generation
-- options for time series recode treatment for piecewise/segmented linear regression
+- Options for optimizing date selection for data point generation
+- Options for time series recode treatment for piecewise/segmented linear regression
 - Uses GUI supporting visualization of datapoints and regression tables, plots, and statistics
 
 ## Installation

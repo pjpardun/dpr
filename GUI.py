@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\TEST\Form.ui'
+# Form implementation generated from reading ui file 'C:\Python projects\DPR\Source\GUI.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -13,7 +13,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1011, 701)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../Users/20492042/.designer/Users/20492042/Downloads/iconfinder_4_1376013.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("/* QGroupBox -------------------------------------------------------------- */\n"
 "QGroupBox {\n"

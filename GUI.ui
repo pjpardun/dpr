@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../Users/20492042/.designer/Users/20492042/Downloads/iconfinder_4_1376013.ico</normaloff>../Users/20492042/.designer/Users/20492042/Downloads/iconfinder_4_1376013.ico</iconset>
+    <normaloff>icon.ico</normaloff>icon.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">/* QGroupBox -------------------------------------------------------------- */

@@ -586,6 +586,7 @@ class DPR(QtWidgets.QMainWindow):
 
 		if data is 0:
 			self.MessageBox(None, "Problem reading file. Check header declaration.", "Attribute Error", 0)
+			return
 		elif data is 1:
 			self.MessageBox(None, "Column 1 should be date type.", "Attribute Error", 0)
 			return
@@ -631,7 +632,7 @@ class DPR(QtWidgets.QMainWindow):
 
 		if has_headers: # data file has headers
 			try:
-				data = pd.read_csv(self.filename, skiprows=0, sep=sep, header=None)
+				data = pd.read_csv(self.filename, skiprows=1, sep=sep, header=None)
 			except AttributeError:
 				return 0
 		else: # data file does not have headers
@@ -692,7 +693,10 @@ class DPR(QtWidgets.QMainWindow):
 			self.ui.graphicsView_1.canvas.ax.set_yticklabels(['${:,}'.format(int(label)) for label in labels])
 		except ValueError:
 			self.MessageBox(None, "Error plotting data with date ranges provided.", "Value Error", 0)
+			# enable calculate button
+			self.ui.pushButton_2.setEnabled(True)
 			return
+			
 		self.ui.graphicsView_1.canvas.draw() # needed for updated figures
 		self.ui.graphicsView_1.show()
 		self.ui.lineEdit_2.setText(DOI)

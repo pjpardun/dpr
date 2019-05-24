@@ -9,6 +9,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime
 import ctypes
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 import pwlf
 from GPyOpt.methods import BayesianOptimization
 import openpyxl
@@ -16,8 +17,8 @@ import math
 from scipy import stats
 
 
-# python included dependencies: sys, os, datetime, dateutil, math
-# installed package dependencies: pyqt, pandas (and xlsxwriter), numpy, scipi, matplotlib, pwlf, gpy, openpyxl (and image)
+# python included dependencies: datetime, ctypes, math, os, sys
+# installed package dependencies: dateutil, gpy, matplotlib, numpy, openpyxl (and image), pandas (and xlsxwriter), pwlf, pyqt, scipi
 
 # class to populate a PyQT table view with a pandas dataframe
 class PandasModel(QtCore.QAbstractTableModel):
@@ -680,7 +681,7 @@ class DPR(QtWidgets.QMainWindow):
 
 		# graph plot
 		self.ui.graphicsView_1.canvas.ax.clear() # clear if already drawn
-		self.ui.graphicsView_1.canvas.ax.plot(x, y, '-', color="orange")
+		self.ui.graphicsView_1.canvas.ax.plot(x, y, '-', color="orange") 
 		self.ui.graphicsView_1.canvas.ax.set_xlabel('Time', fontsize = 8.0) 
 		self.ui.graphicsView_1.canvas.ax.set_ylabel('Sum', fontsize = 8.0) 
 		self.ui.graphicsView_1.canvas.draw() # needed for the first drawing
@@ -688,14 +689,10 @@ class DPR(QtWidgets.QMainWindow):
 			ytick.set_fontsize(8.0)
 		for xtick in self.ui.graphicsView_1.canvas.ax.get_xticklabels(): 
 			xtick.set_fontsize(8.0)
-		labels = [item.get_text() for item in self.ui.graphicsView_1.canvas.ax.get_yticklabels()]
-		try:
-			self.ui.graphicsView_1.canvas.ax.set_yticklabels(['${:,}'.format(int(label)) for label in labels])
-		except ValueError:
-			self.MessageBox(None, "Error plotting data with date ranges provided.", "Value Error", 0)
-			# enable calculate button
-			self.ui.pushButton_2.setEnabled(True)
-			return
+
+		fmt = '${x:,.0f}'
+		tick = mtick.StrMethodFormatter(fmt)
+		self.ui.graphicsView_1.canvas.ax.yaxis.set_major_formatter(tick)
 			
 		self.ui.graphicsView_1.canvas.draw() # needed for updated figures
 		self.ui.graphicsView_1.show()
@@ -756,12 +753,11 @@ class DPR(QtWidgets.QMainWindow):
 			ytick.set_fontsize(8.0)
 		for xtick in self.ui.graphicsView_2.canvas.ax.get_xticklabels(): 
 			xtick.set_fontsize(8.0)
-		labels = [item.get_text() for item in self.ui.graphicsView_2.canvas.ax.get_yticklabels()]
-		try:
-			self.ui.graphicsView_2.canvas.ax.set_yticklabels(['${:,}'.format(int(label)) for label in labels])
-		except ValueError:
-			self.MessageBox(None, "Error plotting data with date ranges provided.", "Value Error", 0)
-			return
+
+		fmt = '${x:,.0f}'
+		tick = mtick.StrMethodFormatter(fmt)
+		self.ui.graphicsView_2.canvas.ax.yaxis.set_major_formatter(tick)
+
 		self.ui.graphicsView_2.canvas.draw()
 		self.ui.graphicsView_2.show()
 

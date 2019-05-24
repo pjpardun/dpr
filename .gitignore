@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Executable artifacts
+myplot.png
+DPR.spec
+
 # C extensions
 *.so
 
